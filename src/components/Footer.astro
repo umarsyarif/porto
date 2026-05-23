@@ -1,0 +1,17 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-[color:var(--color-border-soft)] py-10">
+  <div class="container-page flex flex-col items-start justify-between gap-4 text-[13px] text-[color:var(--color-ink-3)] sm:flex-row sm:items-center">
+    <div class="flex items-center gap-2.5">
+      <span class="grid h-7 w-7 place-items-center rounded-md bg-[color:var(--color-ink)] text-[11px] font-bold text-white">US</span>
+      <span>© {year} Umar Syarif. Built with care.</span>
+    </div>
+    <div class="flex items-center gap-1.5">
+      <span class="hand text-[16px] text-[color:var(--color-accent)]">made in Notion-style</span>
+      <span>·</span>
+      <a href="#top" class="font-medium text-[color:var(--color-ink-2)] hover:text-[color:var(--color-ink)]">Back to top ↑</a>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,73 @@
+---
+import { Icon } from "astro-icon/components";
+
+const ctas = [
+  { label: "Email Me", href: "mailto:umarsyarif1607@gmail.com", icon: "lucide:mail", primary: true },
+  { label: "GitHub", href: "https://github.com/", icon: "lucide:github", primary: false },
+  { label: "LinkedIn", href: "https://linkedin.com/", icon: "lucide:linkedin", primary: false },
+  { label: "Download CV", href: "#", icon: "lucide:download", primary: false },
+];
+---
+
+<section id="contact" class="section-pad">
+  <div class="container-page">
+    <div class="relative overflow-hidden rounded-[28px] border border-[color:var(--color-border)] bg-[color:var(--color-bg-tint)] p-8 sm:p-12 lg:p-16">
+      <!-- Decorative blobs -->
+      <div aria-hidden="true" class="absolute -left-12 -top-12 h-56 w-56 rounded-full bg-[color:var(--color-soft-purple)] blur-2xl opacity-70"></div>
+      <div aria-hidden="true" class="absolute -right-16 -bottom-20 h-72 w-72 rounded-full bg-[color:var(--color-soft-blue)] blur-3xl opacity-70"></div>
+
+      <div class="relative grid items-center gap-10 lg:grid-cols-[1fr_auto] lg:gap-16">
+        <div>
+          <div class="eyebrow">Let's Connect</div>
+          <h2 class="mt-3 text-[clamp(2.25rem,4.2vw,3.5rem)] font-extrabold leading-[1.05] tracking-[-0.03em]">
+            Let's build something useful.
+          </h2>
+          <p class="mt-5 max-w-[60ch] text-[16.5px] leading-[1.7] text-[color:var(--color-ink-2)]">
+            I'm open to software engineering roles, freelance projects, automation systems, and product engineering opportunities.
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            {ctas.map((cta) => (
+              <a
+                href={cta.href}
+                class={
+                  cta.primary
+                    ? "inline-flex items-center gap-2 rounded-xl bg-[color:var(--color-ink)] px-5 py-3 text-[14px] font-semibold text-white transition hover:bg-black"
+                    : "inline-flex items-center gap-2 rounded-xl border border-[color:var(--color-border)] bg-white px-5 py-3 text-[14px] font-semibold text-[color:var(--color-ink)] transition hover:border-[color:var(--color-ink)]/30"
+                }
+              >
+                <Icon name={cta.icon} class="h-4 w-4" />
+                {cta.label}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <!-- Envelope illustration -->
+        <div class="relative mx-auto hidden lg:block">
+          <div class="relative h-56 w-56">
+            <div aria-hidden="true" class="absolute inset-0 rounded-full bg-white shadow-[0_24px_60px_-24px_rgba(109,93,246,0.35)]"></div>
+
+            <div class="absolute inset-0 grid place-items-center">
+              <div class="relative">
+                <div class="grid h-28 w-32 place-items-center rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-soft-purple)] rotate-[-6deg] shadow-sm">
+                  <Icon name="lucide:mail" class="h-14 w-14 text-[color:var(--color-ink)]" />
+                </div>
+                <div class="float-a absolute -right-6 -top-4 grid h-10 w-10 place-items-center rounded-xl bg-[color:var(--color-soft-yellow)] shadow-sm">
+                  <Icon name="lucide:sparkles" class="h-5 w-5 text-[color:var(--color-ink)]" />
+                </div>
+                <div class="float-b absolute -left-6 -bottom-4 grid h-10 w-10 place-items-center rounded-xl bg-[color:var(--color-soft-green)] shadow-sm">
+                  <Icon name="lucide:heart-handshake" class="h-5 w-5 text-[color:var(--color-ink)]" />
+                </div>
+              </div>
+            </div>
+
+            <div class="hand absolute -bottom-2 left-1/2 -translate-x-1/2 text-[18px] text-[color:var(--color-accent)] rotate-[-4deg]">
+              hi there ✺
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

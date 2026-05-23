@@ -1,0 +1,98 @@
+---
+import { Icon } from "astro-icon/components";
+
+const projects = [
+  {
+    name: "Personal Finance Tracker",
+    description: "A self-hosted finance tracker with wallet management, transaction tracking, dashboards, and PWA support.",
+    stack: ["React", "Node.js", "PostgreSQL", "Docker"],
+    status: "In Development",
+    statusTint: "var(--color-soft-yellow)",
+    statusColor: "#9a6a00",
+    icon: "lucide:wallet",
+    iconTint: "var(--color-soft-purple)",
+  },
+  {
+    name: "WhatsApp Financial AI Assistant",
+    description: "An AI assistant that parses natural language finance messages into structured transactions and summaries.",
+    stack: ["n8n", "OpenAI", "Sheets", "WhatsApp API"],
+    status: "Prototype",
+    statusTint: "var(--color-soft-blue)",
+    statusColor: "#1d4ed8",
+    icon: "lucide:message-square-text",
+    iconTint: "var(--color-soft-green)",
+  },
+  {
+    name: "TOPIK Test Simulation Web App",
+    description: "A Korean test simulation platform with paid question packages, score analysis, and learning-focused review.",
+    stack: ["React", "Tailwind CSS", "EdTech", "TBD"],
+    status: "Product Concept",
+    statusTint: "var(--color-soft-orange)",
+    statusColor: "#a14a00",
+    icon: "lucide:graduation-cap",
+    iconTint: "var(--color-soft-orange)",
+  },
+];
+---
+
+<section id="projects" class="section-pad">
+  <div class="container-page">
+    <div class="flex flex-wrap items-end justify-between gap-6">
+      <div class="max-w-2xl">
+        <div class="eyebrow">Featured Projects</div>
+        <h2 class="mt-3 text-[clamp(2rem,3.6vw,3rem)] font-bold leading-[1.12] tracking-[-0.02em]">
+          Selected things I've been building.
+        </h2>
+        <p class="mt-4 text-[16px] leading-[1.7] text-[color:var(--color-ink-2)]">
+          A mix of full-stack applications, AI-assisted workflows, and product experiments.
+        </p>
+      </div>
+
+      <a href="#" class="inline-flex items-center gap-1.5 text-[14px] font-semibold text-[color:var(--color-ink)] hover:text-[color:var(--color-accent)] transition">
+        View all projects
+        <Icon name="lucide:arrow-right" class="h-4 w-4" />
+      </a>
+    </div>
+
+    <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {projects.map((project) => (
+        <a href="#" class="card-interactive group flex flex-col p-6">
+          <div class="flex items-start justify-between gap-3">
+            <div
+              class="grid h-12 w-12 place-items-center rounded-xl text-[color:var(--color-ink)]"
+              style={`background: ${project.iconTint};`}
+            >
+              <Icon name={project.icon} class="h-6 w-6" />
+            </div>
+            <span
+              class="rounded-full px-2.5 py-1 text-[11px] font-semibold"
+              style={`background: ${project.statusTint}; color: ${project.statusColor};`}
+            >
+              {project.status}
+            </span>
+          </div>
+
+          <h3 class="mt-5 text-[18px] font-semibold tracking-tight text-[color:var(--color-ink)]">
+            {project.name}
+          </h3>
+          <p class="mt-2 text-[14px] leading-[1.65] text-[color:var(--color-ink-2)]">
+            {project.description}
+          </p>
+
+          <ul class="mt-5 flex flex-wrap gap-1.5">
+            {project.stack.map((tech) => (
+              <li class="rounded-md bg-[color:var(--color-bg-soft)] px-2 py-0.5 text-[11.5px] font-medium text-[color:var(--color-ink-2)]">
+                {tech}
+              </li>
+            ))}
+          </ul>
+
+          <div class="mt-6 inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-[color:var(--color-accent)] transition group-hover:gap-2.5">
+            View case study
+            <Icon name="lucide:arrow-right" class="h-4 w-4" />
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
