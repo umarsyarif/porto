@@ -1,12 +1,8 @@
 ---
 import { Icon } from "astro-icon/components";
+import { aboutMe } from "../data/portfolio";
 
-const tags = [
-  "Full-stack Development",
-  "Automation",
-  "AI Workflows",
-  "Product Engineering",
-];
+const tags = aboutMe.tagline.split(" · ");
 ---
 
 <section id="top" class="relative overflow-hidden">

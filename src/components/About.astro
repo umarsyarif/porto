@@ -1,12 +1,13 @@
 ---
 import { Icon } from "astro-icon/components";
+import { aboutMe, languages } from "../data/portfolio";
 
 const profile = [
-  { icon: "lucide:map-pin", label: "Based in", value: "South Korea / Remote" },
-  { icon: "lucide:graduation-cap", label: "Background", value: "Informatics Engineering" },
-  { icon: "lucide:target", label: "Focus", value: "Web Apps, Automation, AI Workflows" },
+  { icon: "lucide:map-pin", label: "Based in", value: aboutMe.location },
+  { icon: "lucide:graduation-cap", label: "Study", value: aboutMe.currentStudy.split(" @ ")[0] },
+  { icon: "lucide:target", label: "Focus", value: aboutMe.tagline.split(" · ").slice(0, 3).join(" · ") },
   { icon: "lucide:sparkles", label: "Working Style", value: "Practical, organized, product-minded" },
-  { icon: "lucide:languages", label: "Languages", value: "Bahasa Indonesia, English, Korean learning" },
+  { icon: "lucide:languages", label: "Languages", value: languages.map(lang => lang.name).join(", ") },
 ];
 ---
 

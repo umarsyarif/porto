@@ -158,12 +158,11 @@ const featureCountById = JSON.stringify(
                           style={`--accent: ${project.accent};`}
                           data-feature-bullet
                         >
-                          <span class="group-data-[active]:hidden">{fIndex + 1}</span>
-                          <span class="hidden h-2 w-2 rounded-full bg-white group-data-[active]:block"></span>
+                          <span class="">{fIndex + 1}</span>
                         </span>
                         <span class="min-w-0">
                           <span class="block text-[14px] font-semibold text-[color:var(--color-ink)]">{feature.name}</span>
-                          <span class="block text-[12.5px] leading-[1.55] text-[color:var(--color-ink-2)] line-clamp-2 group-data-[active]:line-clamp-none">{feature.description}</span>
+                          <span class="hidden text-[12.5px] leading-[1.55] text-[color:var(--color-ink-2)] line-clamp-2 group-data-[active]:block group-data-[active]:line-clamp-none">{feature.description}</span>
                         </span>
                       </button>
                     </li>
@@ -173,10 +172,10 @@ const featureCountById = JSON.stringify(
                 <div class="mt-7 flex flex-wrap items-center gap-4">
                   <a
                     href="#"
-                    class="inline-flex items-center gap-1.5 rounded-lg bg-[color:var(--color-ink)] px-4 py-2.5 text-[13px] font-semibold text-white transition hover:bg-black"
+                    aria-label="GitHub repository"
+                    class="grid h-9 w-9 place-items-center rounded-lg border border-[color:var(--color-border)] bg-white text-[color:var(--color-ink-2)] transition hover:border-[color:var(--color-ink)]/30 hover:text-[color:var(--color-ink)]"
                   >
-                    View case study
-                    <Icon name="lucide:arrow-right" class="h-3.5 w-3.5" />
+                    <Icon name="lucide:github" class="h-4 w-4" />
                   </a>
                   <ul class="flex flex-wrap gap-1.5">
                     {project.stack.map((tech) => (
@@ -196,495 +195,52 @@ const featureCountById = JSON.stringify(
 
               <!-- Finance / Wallet management -->
               <div data-mockup data-project="finance" data-index="0" class="absolute inset-0 transition-opacity duration-300">
-                <div class="relative h-full overflow-hidden">
-                  <div class="absolute inset-0" style="background: linear-gradient(140deg, #faf8ff 0%, #ffffff 60%);"></div>
-                  <div class="relative h-full p-5 sm:p-7">
-                    <div class="flex items-center justify-between">
-                      <div>
-                        <div class="text-[11px] font-semibold uppercase tracking-[0.14em] text-[color:var(--color-ink-3)]">Wallets</div>
-                        <div class="mt-1 text-[20px] font-bold tracking-[-0.02em] text-[color:var(--color-ink)]">Total · $7,170</div>
-                      </div>
-                      <button class="inline-flex items-center gap-1 rounded-lg bg-[color:var(--color-ink)] px-2.5 py-1.5 text-[11px] font-semibold text-white">
-                        <Icon name="lucide:plus" class="h-3 w-3" /> New
-                      </button>
-                    </div>
-
-                    <ul class="mt-5 space-y-2.5">
-                      <li class="flex items-center justify-between rounded-xl border border-[color:var(--color-border)] bg-white p-3">
-                        <div class="flex items-center gap-3">
-                          <span class="grid h-9 w-9 place-items-center rounded-lg bg-[color:var(--color-soft-blue)] text-[color:var(--color-ink)]"><Icon name="lucide:landmark" class="h-4 w-4"/></span>
-                          <div>
-                            <div class="text-[13px] font-semibold">Main Bank</div>
-                            <div class="text-[11px] text-[color:var(--color-ink-3)]">Bank · IDR</div>
-                          </div>
-                        </div>
-                        <div class="text-right">
-                          <div class="text-[13px] font-bold">$4,250.00</div>
-                          <div class="text-[10.5px] text-[color:var(--color-success)]">+ $120 this week</div>
-                        </div>
-                      </li>
-                      <li class="flex items-center justify-between rounded-xl border border-[color:var(--color-border)] bg-white p-3">
-                        <div class="flex items-center gap-3">
-                          <span class="grid h-9 w-9 place-items-center rounded-lg bg-[color:var(--color-soft-green)] text-[color:var(--color-ink)]"><Icon name="lucide:piggy-bank" class="h-4 w-4"/></span>
-                          <div>
-                            <div class="text-[13px] font-semibold">Savings</div>
-                            <div class="text-[11px] text-[color:var(--color-ink-3)]">Goal · House</div>
-                          </div>
-                        </div>
-                        <div class="text-right">
-                          <div class="text-[13px] font-bold">$2,800.00</div>
-                          <div class="text-[10.5px] text-[color:var(--color-ink-3)]">56% of goal</div>
-                        </div>
-                      </li>
-                      <li class="flex items-center justify-between rounded-xl border border-[color:var(--color-border)] bg-white p-3">
-                        <div class="flex items-center gap-3">
-                          <span class="grid h-9 w-9 place-items-center rounded-lg bg-[color:var(--color-soft-yellow)] text-[color:var(--color-ink)]"><Icon name="lucide:wallet" class="h-4 w-4"/></span>
-                          <div>
-                            <div class="text-[13px] font-semibold">Cash</div>
-                            <div class="text-[11px] text-[color:var(--color-ink-3)]">Daily wallet</div>
-                          </div>
-                        </div>
-                        <div class="text-right">
-                          <div class="text-[13px] font-bold">$120.00</div>
-                          <div class="text-[10.5px] text-[color:var(--color-ink-3)]">3 transactions</div>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+                <img src="/screenshots/finance-wallets.svg" alt="Wallet management" class="h-full w-full object-cover object-top" />
               </div>
 
               <!-- Finance / Transactions -->
               <div data-mockup data-project="finance" data-index="1" class="absolute inset-0 transition-opacity duration-300 opacity-0 pointer-events-none">
-                <div class="relative h-full overflow-hidden">
-                  <div class="absolute inset-0" style="background: linear-gradient(140deg, #fafafa 0%, #ffffff 60%);"></div>
-                  <div class="relative h-full p-5 sm:p-7">
-                    <div class="flex items-center justify-between">
-                      <div class="text-[15px] font-bold tracking-[-0.01em]">Transactions</div>
-                      <div class="flex gap-1">
-                        <span class="rounded-md bg-[color:var(--color-ink)] px-2 py-1 text-[10.5px] font-semibold text-white">All</span>
-                        <span class="rounded-md border border-[color:var(--color-border)] bg-white px-2 py-1 text-[10.5px] font-medium text-[color:var(--color-ink-2)]">Income</span>
-                        <span class="rounded-md border border-[color:var(--color-border)] bg-white px-2 py-1 text-[10.5px] font-medium text-[color:var(--color-ink-2)]">Expense</span>
-                      </div>
-                    </div>
-                    <ul class="mt-4 divide-y divide-[color:var(--color-border-soft)] rounded-xl border border-[color:var(--color-border)] bg-white">
-                      <li class="flex items-center justify-between gap-3 p-3">
-                        <div class="flex items-center gap-3">
-                          <span class="grid h-8 w-8 place-items-center rounded-lg bg-[color:var(--color-soft-orange)]"><Icon name="lucide:utensils" class="h-4 w-4"/></span>
-                          <div>
-                            <div class="text-[13px] font-semibold">Lunch · Padang Sederhana</div>
-                            <div class="text-[10.5px] text-[color:var(--color-ink-3)]">Today · Food</div>
-                          </div>
-                        </div>
-                        <div class="text-[13px] font-bold text-[color:var(--color-ink)]">−$3.20</div>
-                      </li>
-                      <li class="flex items-center justify-between gap-3 p-3">
-                        <div class="flex items-center gap-3">
-                          <span class="grid h-8 w-8 place-items-center rounded-lg bg-[color:var(--color-soft-green)]"><Icon name="lucide:arrow-down-to-line" class="h-4 w-4 text-[color:var(--color-success)]"/></span>
-                          <div>
-                            <div class="text-[13px] font-semibold">Freelance payment</div>
-                            <div class="text-[10.5px] text-[color:var(--color-ink-3)]">Yesterday · Income</div>
-                          </div>
-                        </div>
-                        <div class="text-[13px] font-bold text-[color:var(--color-success)]">+$420.00</div>
-                      </li>
-                      <li class="flex items-center justify-between gap-3 p-3">
-                        <div class="flex items-center gap-3">
-                          <span class="grid h-8 w-8 place-items-center rounded-lg bg-[color:var(--color-soft-blue)]"><Icon name="lucide:bus" class="h-4 w-4"/></span>
-                          <div>
-                            <div class="text-[13px] font-semibold">Subway pass · Seoul</div>
-                            <div class="text-[10.5px] text-[color:var(--color-ink-3)]">Mon · Transport</div>
-                          </div>
-                        </div>
-                        <div class="text-[13px] font-bold text-[color:var(--color-ink)]">−$48.00</div>
-                      </li>
-                      <li class="flex items-center justify-between gap-3 p-3">
-                        <div class="flex items-center gap-3">
-                          <span class="grid h-8 w-8 place-items-center rounded-lg bg-[color:var(--color-soft-purple)]"><Icon name="lucide:shopping-bag" class="h-4 w-4"/></span>
-                          <div>
-                            <div class="text-[13px] font-semibold">Groceries</div>
-                            <div class="text-[10.5px] text-[color:var(--color-ink-3)]">Sun · Home</div>
-                          </div>
-                        </div>
-                        <div class="text-[13px] font-bold text-[color:var(--color-ink)]">−$62.30</div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+                <img src="/screenshots/finance-transactions.svg" alt="Transaction tracking" class="h-full w-full object-cover object-top" />
               </div>
 
               <!-- Finance / Dashboard -->
               <div data-mockup data-project="finance" data-index="2" class="absolute inset-0 transition-opacity duration-300 opacity-0 pointer-events-none">
-                <div class="relative h-full overflow-hidden">
-                  <div class="absolute inset-0" style="background: linear-gradient(140deg, #eef2ff 0%, #ffffff 60%);"></div>
-                  <div class="relative h-full p-5 sm:p-7">
-                    <div class="grid grid-cols-3 gap-2.5">
-                      <div class="rounded-xl border border-[color:var(--color-border)] bg-white p-3">
-                        <div class="text-[10px] font-semibold uppercase tracking-wider text-[color:var(--color-ink-3)]">Income</div>
-                        <div class="mt-1 text-[15px] font-bold">$3,420</div>
-                        <div class="mt-0.5 text-[10px] text-[color:var(--color-success)]">▲ 12%</div>
-                      </div>
-                      <div class="rounded-xl border border-[color:var(--color-border)] bg-white p-3">
-                        <div class="text-[10px] font-semibold uppercase tracking-wider text-[color:var(--color-ink-3)]">Expense</div>
-                        <div class="mt-1 text-[15px] font-bold">$1,840</div>
-                        <div class="mt-0.5 text-[10px] text-[color:var(--color-ink-3)]">▼ 4%</div>
-                      </div>
-                      <div class="rounded-xl border border-[color:var(--color-border)] bg-white p-3">
-                        <div class="text-[10px] font-semibold uppercase tracking-wider text-[color:var(--color-ink-3)]">Net</div>
-                        <div class="mt-1 text-[15px] font-bold">$1,580</div>
-                        <div class="mt-0.5 text-[10px] text-[color:var(--color-success)]">on track</div>
-                      </div>
-                    </div>
-
-                    <div class="mt-4 rounded-xl border border-[color:var(--color-border)] bg-white p-3">
-                      <div class="flex items-center justify-between">
-                        <div class="text-[12px] font-semibold">Spending — last 7 weeks</div>
-                        <div class="text-[10.5px] text-[color:var(--color-ink-3)]">USD</div>
-                      </div>
-                      <svg viewBox="0 0 280 90" class="mt-2 h-24 w-full" preserveAspectRatio="none">
-                        <defs>
-                          <linearGradient id="barGrad" x1="0" x2="0" y1="0" y2="1">
-                            <stop offset="0" stop-color="#6d5df6"/>
-                            <stop offset="1" stop-color="#a99dff"/>
-                          </linearGradient>
-                        </defs>
-                        {[42, 58, 36, 70, 50, 78, 62].map((h, i) => (
-                          <g>
-                            <rect x={10 + i * 38} y={88 - h} width="22" height={h} rx="4" fill="url(#barGrad)"/>
-                          </g>
-                        ))}
-                      </svg>
-                      <div class="mt-1 flex justify-between text-[9.5px] text-[color:var(--color-ink-3)]">
-                        <span>W1</span><span>W2</span><span>W3</span><span>W4</span><span>W5</span><span>W6</span><span>W7</span>
-                      </div>
-                    </div>
-
-                    <div class="mt-3 grid grid-cols-2 gap-2.5">
-                      <div class="rounded-xl border border-[color:var(--color-border)] bg-white p-3">
-                        <div class="text-[10.5px] font-semibold text-[color:var(--color-ink-3)]">Top category</div>
-                        <div class="mt-1 flex items-center gap-2">
-                          <span class="h-2 w-2 rounded-full bg-[#6d5df6]"></span>
-                          <span class="text-[12px] font-semibold">Food</span>
-                        </div>
-                        <div class="text-[10.5px] text-[color:var(--color-ink-3)]">42% · $772</div>
-                      </div>
-                      <div class="rounded-xl border border-[color:var(--color-border)] bg-white p-3">
-                        <div class="text-[10.5px] font-semibold text-[color:var(--color-ink-3)]">Savings rate</div>
-                        <div class="mt-1 text-[14px] font-bold">46%</div>
-                        <div class="mt-1 h-1.5 w-full overflow-hidden rounded-full bg-[color:var(--color-bg-soft)]">
-                          <div class="h-full rounded-full bg-[color:var(--color-success)]" style="width:46%"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <img src="/screenshots/finance-dashboard.svg" alt="Smart dashboards" class="h-full w-full object-cover object-top" />
               </div>
 
               <!-- Finance / PWA -->
               <div data-mockup data-project="finance" data-index="3" class="absolute inset-0 transition-opacity duration-300 opacity-0 pointer-events-none">
-                <div class="relative h-full overflow-hidden">
-                  <div class="absolute inset-0" style="background: linear-gradient(140deg, #f1eeff 0%, #ffffff 60%);"></div>
-                  <div class="relative grid h-full place-items-center p-5">
-                    <div class="relative">
-                      <!-- Phone frame -->
-                      <div class="relative h-[280px] w-[150px] rounded-[28px] border-[5px] border-[color:var(--color-ink)] bg-white shadow-[0_30px_60px_-30px_rgba(17,24,39,0.4)]">
-                        <div class="absolute left-1/2 top-1.5 h-1 w-12 -translate-x-1/2 rounded-full bg-[color:var(--color-ink)]"></div>
-                        <div class="absolute inset-1.5 mt-5 grid grid-rows-[auto_auto_1fr_auto] gap-2 overflow-hidden rounded-[20px] bg-[color:var(--color-bg-soft)] p-2.5">
-                          <div class="flex items-center justify-between text-[8px] font-semibold text-[color:var(--color-ink-3)]">
-                            <span>9:41</span><span>●●●</span>
-                          </div>
-                          <div>
-                            <div class="text-[10px] font-bold leading-tight">Finance</div>
-                            <div class="text-[8px] text-[color:var(--color-ink-3)]">Good evening, Umar</div>
-                          </div>
-                          <div class="grid grid-cols-2 gap-1.5 content-start">
-                            <div class="rounded-md bg-white p-1.5"><div class="text-[7.5px] text-[color:var(--color-ink-3)]">Net</div><div class="text-[10px] font-bold">$1.58k</div></div>
-                            <div class="rounded-md bg-white p-1.5"><div class="text-[7.5px] text-[color:var(--color-ink-3)]">Goal</div><div class="text-[10px] font-bold">56%</div></div>
-                            <div class="col-span-2 rounded-md bg-white p-1.5">
-                              <div class="text-[7.5px] text-[color:var(--color-ink-3)]">Latest</div>
-                              <div class="mt-0.5 flex items-center justify-between"><span class="text-[8px] font-medium">Lunch</span><span class="text-[8px] font-bold">−$3.20</span></div>
-                              <div class="mt-0.5 flex items-center justify-between"><span class="text-[8px] font-medium">Subway</span><span class="text-[8px] font-bold">−$48</span></div>
-                            </div>
-                          </div>
-                          <button class="rounded-md bg-[color:var(--color-ink)] py-1 text-[8.5px] font-semibold text-white">+ Add transaction</button>
-                        </div>
-                      </div>
-                      <!-- Install card -->
-                      <div class="absolute -right-12 top-4 w-44 rotate-[6deg] rounded-xl border border-[color:var(--color-border)] bg-white p-3 shadow-[0_20px_40px_-20px_rgba(17,24,39,0.25)]">
-                        <div class="flex items-center gap-2">
-                          <span class="grid h-7 w-7 place-items-center rounded-md bg-[color:var(--color-ink)] text-[9px] font-bold text-white">FT</span>
-                          <div class="text-[10.5px] font-semibold leading-tight">Install Finance<br/>Tracker?</div>
-                        </div>
-                        <div class="mt-2 flex gap-1.5">
-                          <button class="flex-1 rounded-md bg-[color:var(--color-ink)] py-1 text-[9.5px] font-semibold text-white">Install</button>
-                          <button class="rounded-md border border-[color:var(--color-border)] px-2 py-1 text-[9.5px] font-semibold text-[color:var(--color-ink-2)]">Later</button>
-                        </div>
-                      </div>
-                      <!-- Offline badge -->
-                      <div class="absolute -left-10 bottom-12 rotate-[-8deg] rounded-full border border-[color:var(--color-border)] bg-white px-2.5 py-1 text-[10px] font-semibold text-[color:var(--color-ink-2)] shadow-sm">
-                        <Icon name="lucide:wifi-off" class="mr-1 inline h-3 w-3"/> Works offline
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <img src="/screenshots/finance-pwa.svg" alt="Installable PWA" class="h-full w-full object-cover object-top" />
               </div>
 
               <!-- WhatsApp / Natural language -->
               <div data-mockup data-project="whatsapp" data-index="0" class="absolute inset-0 transition-opacity duration-300 opacity-0 pointer-events-none">
-                <div class="relative h-full overflow-hidden">
-                  <div class="absolute inset-0" style="background: linear-gradient(140deg, #e7f6ed 0%, #ffffff 60%);"></div>
-                  <div class="relative grid h-full place-items-center p-5">
-                    <div class="w-full max-w-[300px] rounded-2xl border border-[color:var(--color-border)] bg-white shadow-[0_24px_50px_-24px_rgba(22,163,74,0.3)] overflow-hidden">
-                      <div class="flex items-center gap-2 bg-[#075e54] px-4 py-2.5 text-white">
-                        <span class="grid h-7 w-7 place-items-center rounded-full bg-white/15 text-[10px] font-bold">AI</span>
-                        <div class="text-[12px] font-semibold leading-tight">Finance Assistant<br/><span class="text-[9.5px] font-normal opacity-80">online</span></div>
-                      </div>
-                      <div class="space-y-2 bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22><circle cx=%2220%22 cy=%2220%22 r=%221%22 fill=%22%23dcd1c0%22 opacity=%22.5%22/></svg>')] bg-[#ece5dd] p-4">
-                        <div class="ml-auto max-w-[80%] rounded-2xl rounded-tr-sm bg-[#dcf8c6] px-3 py-2 text-[11.5px] text-[color:var(--color-ink)] shadow-sm">
-                          Lunch with team Rp 250k at Padang Sederhana
-                          <div class="mt-0.5 text-right text-[8.5px] text-[color:var(--color-ink-3)]">12:42 PM ✓✓</div>
-                        </div>
-                        <div class="max-w-[80%] rounded-2xl rounded-tl-sm bg-white px-3 py-2 text-[11.5px] text-[color:var(--color-ink)] shadow-sm">
-                          <div class="text-[9.5px] font-semibold uppercase tracking-wider text-[color:var(--color-success)]">Logged ✓</div>
-                          <div class="mt-1 grid grid-cols-[auto_1fr] gap-x-2 gap-y-0.5 text-[10.5px]">
-                            <span class="text-[color:var(--color-ink-3)]">Amount</span><span class="font-semibold">Rp 250,000</span>
-                            <span class="text-[color:var(--color-ink-3)]">Category</span><span class="font-semibold">Food · Lunch</span>
-                            <span class="text-[color:var(--color-ink-3)]">Vendor</span><span class="font-semibold">Padang Sederhana</span>
-                            <span class="text-[color:var(--color-ink-3)]">Wallet</span><span class="font-semibold">Cash</span>
-                          </div>
-                          <div class="mt-0.5 text-right text-[8.5px] text-[color:var(--color-ink-3)]">12:42 PM</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <img src="/screenshots/whatsapp-chat.svg" alt="Natural language parsing" class="h-full w-full object-cover object-top" />
               </div>
 
               <!-- WhatsApp / Structured ledger -->
               <div data-mockup data-project="whatsapp" data-index="1" class="absolute inset-0 transition-opacity duration-300 opacity-0 pointer-events-none">
-                <div class="relative h-full overflow-hidden">
-                  <div class="absolute inset-0" style="background: linear-gradient(140deg, #ecfdf3 0%, #ffffff 60%);"></div>
-                  <div class="relative h-full p-5 sm:p-7">
-                    <div class="flex items-center justify-between">
-                      <div>
-                        <div class="text-[15px] font-bold tracking-[-0.01em]">Finance ledger</div>
-                        <div class="text-[10.5px] text-[color:var(--color-ink-3)]">synced from WhatsApp · Google Sheets</div>
-                      </div>
-                      <span class="inline-flex items-center gap-1 rounded-md bg-[color:var(--color-soft-green)] px-2 py-1 text-[10px] font-semibold text-[color:var(--color-success)]"><span class="h-1.5 w-1.5 rounded-full bg-[color:var(--color-success)]"></span>Live</span>
-                    </div>
-                    <div class="mt-4 overflow-hidden rounded-xl border border-[color:var(--color-border)] bg-white">
-                      <div class="grid grid-cols-[60px_1fr_70px_90px] gap-2 border-b border-[color:var(--color-border)] bg-[color:var(--color-bg-soft)] px-3 py-2 text-[10px] font-semibold uppercase tracking-wider text-[color:var(--color-ink-3)]">
-                        <div>Date</div><div>Description</div><div>Category</div><div class="text-right">Amount</div>
-                      </div>
-                      {[
-                        { date: "Today", desc: "Lunch · Padang Sederhana", cat: "Food", amount: "−250k", color: "" },
-                        { date: "Today", desc: "Gojek to office", cat: "Transport", amount: "−18k", color: "" },
-                        { date: "Mon", desc: "Client invoice #218", cat: "Income", amount: "+5,200k", color: "text-[color:var(--color-success)]" },
-                        { date: "Sun", desc: "Groceries Tokopedia", cat: "Home", amount: "−320k", color: "" },
-                        { date: "Sat", desc: "Coffee · Anomali", cat: "Food", amount: "−45k", color: "" },
-                      ].map((row) => (
-                        <div class="grid grid-cols-[60px_1fr_70px_90px] gap-2 border-b border-[color:var(--color-border-soft)] px-3 py-2 text-[11px] last:border-b-0">
-                          <div class="text-[color:var(--color-ink-3)]">{row.date}</div>
-                          <div class="truncate font-medium">{row.desc}</div>
-                          <div><span class="rounded bg-[color:var(--color-bg-soft)] px-1.5 py-0.5 text-[10px] font-medium text-[color:var(--color-ink-2)]">{row.cat}</span></div>
-                          <div class={`text-right font-bold ${row.color}`}>{row.amount}</div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+                <img src="/screenshots/whatsapp-ledger.svg" alt="Structured transactions" class="h-full w-full object-cover object-top" />
               </div>
 
               <!-- WhatsApp / Summary -->
               <div data-mockup data-project="whatsapp" data-index="2" class="absolute inset-0 transition-opacity duration-300 opacity-0 pointer-events-none">
-                <div class="relative h-full overflow-hidden">
-                  <div class="absolute inset-0" style="background: linear-gradient(140deg, #ecfdf3 0%, #ffffff 60%);"></div>
-                  <div class="relative grid h-full place-items-center p-5">
-                    <div class="w-full max-w-[330px] space-y-2">
-                      <div class="ml-auto max-w-[78%] rounded-2xl rounded-tr-sm bg-[#dcf8c6] px-3 py-2 text-[11.5px] shadow-sm">
-                        Send me my weekly summary
-                        <div class="mt-0.5 text-right text-[8.5px] text-[color:var(--color-ink-3)]">Sun 8:00 ✓✓</div>
-                      </div>
-                      <div class="rounded-2xl rounded-tl-sm bg-white p-3.5 shadow-sm border border-[color:var(--color-border-soft)]">
-                        <div class="text-[12.5px] font-bold">Week of Aug 12 – 18</div>
-                        <div class="mt-2 grid grid-cols-3 gap-2">
-                          <div class="rounded-lg bg-[color:var(--color-soft-green)] p-2">
-                            <div class="text-[9px] font-semibold uppercase tracking-wider text-[color:var(--color-success)]">Income</div>
-                            <div class="text-[12.5px] font-bold">5.2M</div>
-                          </div>
-                          <div class="rounded-lg bg-[color:var(--color-soft-red)] p-2">
-                            <div class="text-[9px] font-semibold uppercase tracking-wider" style="color:#b91c1c">Spent</div>
-                            <div class="text-[12.5px] font-bold">1.24M</div>
-                          </div>
-                          <div class="rounded-lg bg-[color:var(--color-soft-purple)] p-2">
-                            <div class="text-[9px] font-semibold uppercase tracking-wider text-[color:var(--color-accent)]">Saved</div>
-                            <div class="text-[12.5px] font-bold">3.9M</div>
-                          </div>
-                        </div>
-                        <div class="mt-3 space-y-1.5">
-                          <div class="text-[10.5px] font-semibold text-[color:var(--color-ink-3)]">Top categories</div>
-                          <div class="flex items-center gap-2">
-                            <span class="h-1.5 w-1.5 rounded-full bg-[#6d5df6]"></span>
-                            <span class="text-[10.5px] flex-1">Food</span>
-                            <span class="text-[10.5px] font-semibold">520k</span>
-                          </div>
-                          <div class="h-1 w-full rounded-full bg-[color:var(--color-bg-soft)]">
-                            <div class="h-full rounded-full" style="width:62%;background:#6d5df6"></div>
-                          </div>
-                          <div class="flex items-center gap-2">
-                            <span class="h-1.5 w-1.5 rounded-full bg-[#16a34a]"></span>
-                            <span class="text-[10.5px] flex-1">Transport</span>
-                            <span class="text-[10.5px] font-semibold">230k</span>
-                          </div>
-                          <div class="h-1 w-full rounded-full bg-[color:var(--color-bg-soft)]">
-                            <div class="h-full rounded-full" style="width:34%;background:#16a34a"></div>
-                          </div>
-                        </div>
-                        <div class="mt-2 text-right text-[8.5px] text-[color:var(--color-ink-3)]">8:00 AM</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <img src="/screenshots/whatsapp-summary.svg" alt="Weekly summaries" class="h-full w-full object-cover object-top" />
               </div>
 
               <!-- TOPIK / Test mode -->
               <div data-mockup data-project="topik" data-index="0" class="absolute inset-0 transition-opacity duration-300 opacity-0 pointer-events-none">
-                <div class="relative h-full overflow-hidden">
-                  <div class="absolute inset-0" style="background: linear-gradient(140deg, #fff3e6 0%, #ffffff 60%);"></div>
-                  <div class="relative h-full p-5 sm:p-7">
-                    <div class="flex items-center justify-between">
-                      <div class="flex items-center gap-2">
-                        <span class="rounded-md bg-[color:var(--color-ink)] px-2 py-0.5 text-[10px] font-bold text-white">TOPIK II</span>
-                        <span class="text-[11px] font-semibold text-[color:var(--color-ink-3)]">읽기 · Reading</span>
-                      </div>
-                      <div class="flex items-center gap-1.5 rounded-full border border-[color:var(--color-border)] bg-white px-2.5 py-1 text-[11px] font-semibold">
-                        <Icon name="lucide:timer" class="h-3.5 w-3.5"/> 32:14
-                      </div>
-                    </div>
-                    <div class="mt-3 h-1 w-full overflow-hidden rounded-full bg-[color:var(--color-border-soft)]">
-                      <div class="h-full rounded-full bg-[#d97706]" style="width:38%"></div>
-                    </div>
-                    <div class="mt-4 rounded-xl border border-[color:var(--color-border)] bg-white p-4">
-                      <div class="text-[10.5px] font-semibold text-[color:var(--color-ink-3)]">Question 14 / 50</div>
-                      <p class="mt-2 text-[12.5px] leading-[1.6] text-[color:var(--color-ink)]">
-                        다음을 읽고 가장 알맞은 것을 고르십시오.
-                        <span class="block mt-1.5 text-[11.5px] text-[color:var(--color-ink-2)]">"이 카페는 주말에는 사람이 많아서 자리가 없을 때도 있어요."</span>
-                      </p>
-                      <div class="mt-3 space-y-1.5">
-                        {[
-                          { k: "A", t: "주말에는 카페가 항상 한가합니다.", active: false },
-                          { k: "B", t: "주말 카페는 자리가 부족할 수 있어요.", active: true },
-                          { k: "C", t: "사람들이 평일에만 카페를 갑니다.", active: false },
-                          { k: "D", t: "이 카페에는 항상 자리가 많습니다.", active: false },
-                        ].map((opt) => (
-                          <div class:list={["flex items-center gap-2 rounded-lg border px-3 py-2 text-[11.5px]", opt.active ? "border-[#d97706] bg-[color:var(--color-soft-orange)]" : "border-[color:var(--color-border)] bg-white"]}>
-                            <span class:list={["grid h-5 w-5 place-items-center rounded-md text-[10px] font-bold", opt.active ? "bg-[#d97706] text-white" : "bg-[color:var(--color-bg-soft)] text-[color:var(--color-ink-2)]"]}>{opt.k}</span>
-                            <span class="flex-1">{opt.t}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <img src="/screenshots/topik-test.svg" alt="Realistic test mode" class="h-full w-full object-cover object-top" />
               </div>
 
               <!-- TOPIK / Score analysis -->
               <div data-mockup data-project="topik" data-index="1" class="absolute inset-0 transition-opacity duration-300 opacity-0 pointer-events-none">
-                <div class="relative h-full overflow-hidden">
-                  <div class="absolute inset-0" style="background: linear-gradient(140deg, #fff7ed 0%, #ffffff 60%);"></div>
-                  <div class="relative h-full p-5 sm:p-7">
-                    <div class="flex items-end justify-between">
-                      <div>
-                        <div class="text-[11px] font-semibold uppercase tracking-wider text-[color:var(--color-ink-3)]">Mock test · Aug 12</div>
-                        <div class="mt-1 flex items-baseline gap-2">
-                          <span class="text-[28px] font-extrabold tracking-[-0.03em]">204</span>
-                          <span class="text-[12px] font-semibold text-[color:var(--color-ink-3)]">/ 300 — Level 4</span>
-                        </div>
-                      </div>
-                      <span class="inline-flex items-center gap-1 rounded-full bg-[color:var(--color-soft-green)] px-2 py-1 text-[10px] font-semibold text-[color:var(--color-success)]">▲ 18 from last</span>
-                    </div>
-
-                    <div class="mt-5 grid grid-cols-2 gap-3">
-                      <div class="rounded-xl border border-[color:var(--color-border)] bg-white p-3.5">
-                        <div class="flex items-center justify-between">
-                          <span class="text-[11px] font-semibold">듣기 Listening</span>
-                          <span class="text-[12px] font-bold">72/100</span>
-                        </div>
-                        <div class="mt-2 h-1.5 w-full rounded-full bg-[color:var(--color-bg-soft)]">
-                          <div class="h-full rounded-full bg-[#d97706]" style="width:72%"></div>
-                        </div>
-                        <div class="mt-2 text-[10px] text-[color:var(--color-ink-3)]">Strongest in casual dialogues. Watch news listening.</div>
-                      </div>
-                      <div class="rounded-xl border border-[color:var(--color-border)] bg-white p-3.5">
-                        <div class="flex items-center justify-between">
-                          <span class="text-[11px] font-semibold">읽기 Reading</span>
-                          <span class="text-[12px] font-bold">68/100</span>
-                        </div>
-                        <div class="mt-2 h-1.5 w-full rounded-full bg-[color:var(--color-bg-soft)]">
-                          <div class="h-full rounded-full bg-[#d97706]" style="width:68%"></div>
-                        </div>
-                        <div class="mt-2 text-[10px] text-[color:var(--color-ink-3)]">Time pressure on long passages. Try section 3 first.</div>
-                      </div>
-                      <div class="rounded-xl border border-[color:var(--color-border)] bg-white p-3.5">
-                        <div class="flex items-center justify-between">
-                          <span class="text-[11px] font-semibold">쓰기 Writing</span>
-                          <span class="text-[12px] font-bold">64/100</span>
-                        </div>
-                        <div class="mt-2 h-1.5 w-full rounded-full bg-[color:var(--color-bg-soft)]">
-                          <div class="h-full rounded-full bg-[#d97706]" style="width:64%"></div>
-                        </div>
-                        <div class="mt-2 text-[10px] text-[color:var(--color-ink-3)]">Focus on connecting sentences with conjunctions.</div>
-                      </div>
-                      <div class="grid place-items-center rounded-xl border border-dashed border-[color:var(--color-border)] bg-[color:var(--color-bg-soft)] p-3.5 text-center">
-                        <div>
-                          <Icon name="lucide:sparkles" class="mx-auto h-4 w-4 text-[#d97706]"/>
-                          <div class="mt-1 text-[10.5px] font-semibold">3 practice packs<br/>recommended</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <img src="/screenshots/topik-scores.svg" alt="Score analysis" class="h-full w-full object-cover object-top" />
               </div>
 
               <!-- TOPIK / Packages -->
               <div data-mockup data-project="topik" data-index="2" class="absolute inset-0 transition-opacity duration-300 opacity-0 pointer-events-none">
-                <div class="relative h-full overflow-hidden">
-                  <div class="absolute inset-0" style="background: linear-gradient(140deg, #fff3e6 0%, #ffffff 60%);"></div>
-                  <div class="relative h-full p-5 sm:p-7">
-                    <div class="text-[15px] font-bold tracking-[-0.01em]">Practice packages</div>
-                    <div class="mt-1 text-[11px] text-[color:var(--color-ink-3)]">Buy once, practice forever. No subscriptions.</div>
-                    <div class="mt-4 grid grid-cols-3 gap-2.5">
-                      <div class="rounded-xl border border-[color:var(--color-border)] bg-white p-3">
-                        <div class="text-[10.5px] font-semibold text-[color:var(--color-ink-3)]">Starter</div>
-                        <div class="mt-1 text-[16px] font-bold">Free</div>
-                        <ul class="mt-2.5 space-y-1 text-[10.5px] text-[color:var(--color-ink-2)]">
-                          <li class="flex gap-1.5"><Icon name="lucide:check" class="h-3 w-3 text-[color:var(--color-success)]"/> 1 mock test</li>
-                          <li class="flex gap-1.5"><Icon name="lucide:check" class="h-3 w-3 text-[color:var(--color-success)]"/> Basic score</li>
-                          <li class="flex gap-1.5 text-[color:var(--color-ink-3)]"><Icon name="lucide:x" class="h-3 w-3"/> Detailed review</li>
-                        </ul>
-                      </div>
-                      <div class="relative rounded-xl border-2 border-[#d97706] bg-[color:var(--color-soft-orange)] p-3 shadow-sm">
-                        <span class="absolute -top-2 right-2 rounded-full bg-[#d97706] px-2 py-0.5 text-[8.5px] font-bold text-white">POPULAR</span>
-                        <div class="text-[10.5px] font-semibold text-[#a14a00]">Core</div>
-                        <div class="mt-1 text-[16px] font-bold">Rp 89k</div>
-                        <ul class="mt-2.5 space-y-1 text-[10.5px] text-[color:var(--color-ink-2)]">
-                          <li class="flex gap-1.5"><Icon name="lucide:check" class="h-3 w-3 text-[#d97706]"/> 5 full tests</li>
-                          <li class="flex gap-1.5"><Icon name="lucide:check" class="h-3 w-3 text-[#d97706]"/> Detailed review</li>
-                          <li class="flex gap-1.5"><Icon name="lucide:check" class="h-3 w-3 text-[#d97706]"/> Topic drills</li>
-                        </ul>
-                      </div>
-                      <div class="rounded-xl border border-[color:var(--color-border)] bg-white p-3">
-                        <div class="text-[10.5px] font-semibold text-[color:var(--color-ink-3)]">Pro</div>
-                        <div class="mt-1 text-[16px] font-bold">Rp 249k</div>
-                        <ul class="mt-2.5 space-y-1 text-[10.5px] text-[color:var(--color-ink-2)]">
-                          <li class="flex gap-1.5"><Icon name="lucide:check" class="h-3 w-3 text-[color:var(--color-success)]"/> Unlimited tests</li>
-                          <li class="flex gap-1.5"><Icon name="lucide:check" class="h-3 w-3 text-[color:var(--color-success)]"/> Adaptive packs</li>
-                          <li class="flex gap-1.5"><Icon name="lucide:check" class="h-3 w-3 text-[color:var(--color-success)]"/> 1:1 review</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <img src="/screenshots/topik-packages.svg" alt="Question packages" class="h-full w-full object-cover object-top" />
               </div>
             </div>
 

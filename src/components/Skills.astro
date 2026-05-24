@@ -1,44 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
-
-const skills = [
-  {
-    title: "Frontend",
-    icon: "lucide:layout-panel-top",
-    tint: "var(--color-soft-purple)",
-    tools: ["React", "Vue.js", "Vite", "Tailwind CSS", "shadcn/ui", "PWA", "Recharts"],
-  },
-  {
-    title: "Backend",
-    icon: "lucide:server",
-    tint: "var(--color-soft-blue)",
-    tools: ["Laravel", "Node.js", "Express", "REST API", "JWT Auth", "Prisma ORM"],
-  },
-  {
-    title: "Automation & AI",
-    icon: "lucide:bot",
-    tint: "var(--color-soft-green)",
-    tools: ["n8n", "OpenAI API", "WhatsApp API", "Telegram Bot", "Google Drive API"],
-  },
-  {
-    title: "Database",
-    icon: "lucide:database",
-    tint: "var(--color-soft-yellow)",
-    tools: ["PostgreSQL", "MySQL", "Google Sheets", "Prisma"],
-  },
-  {
-    title: "Infrastructure",
-    icon: "lucide:cloud",
-    tint: "var(--color-soft-orange)",
-    tools: ["Docker", "Docker Compose", "Traefik", "Ubuntu VPS", "Cloudflare", "Let's Encrypt"],
-  },
-  {
-    title: "Testing",
-    icon: "lucide:circle-check-big",
-    tint: "var(--color-soft-red)",
-    tools: ["Playwright", "SpecFlow", "UI Regression Testing", "Automated Testing"],
-  },
-];
+import { skills } from "../data/portfolio";
 ---
 
 <section id="skills" class="section-pad bg-[color:var(--color-bg-tint)]">
@@ -63,12 +25,12 @@ const skills = [
             <Icon name={skill.icon} class="h-6 w-6" />
           </div>
 
-          <h3 class="mt-5 text-[17px] font-semibold tracking-tight">{skill.title}</h3>
+          <h3 class="mt-5 text-[17px] font-semibold tracking-tight">{skill.category}</h3>
 
           <ul class="mt-3 flex flex-wrap gap-1.5">
-            {skill.tools.map((tool) => (
+            {skill.items.map((item) => (
               <li class="rounded-md bg-[color:var(--color-bg-soft)] px-2 py-0.5 text-[12px] font-medium text-[color:var(--color-ink-2)]">
-                {tool}
+                {item}
               </li>
             ))}
           </ul>

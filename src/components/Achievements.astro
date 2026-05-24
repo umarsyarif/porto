@@ -1,44 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
-
-const achievements = [
-  {
-    title: "1st Place Winner",
-    description: "Sejong Global Idea Hackathon, Seoul, 2025",
-    icon: "lucide:trophy",
-    tint: "var(--color-soft-yellow)",
-  },
-  {
-    title: "Alibaba Cloud Certification",
-    description: "ACA Cloud Computing",
-    icon: "lucide:cloud",
-    tint: "var(--color-soft-blue)",
-  },
-  {
-    title: "Built 50+ UI Screens",
-    description: "From production wireframes into usable interfaces",
-    icon: "lucide:monitor",
-    tint: "var(--color-soft-purple)",
-  },
-  {
-    title: "Supported Rp. 1.75B Revenue",
-    description: "Through technical and operational systems",
-    icon: "lucide:trending-up",
-    tint: "var(--color-soft-green)",
-  },
-  {
-    title: "GKS Awardee",
-    description: "Global Korea Scholarship",
-    icon: "lucide:graduation-cap",
-    tint: "var(--color-soft-orange)",
-  },
-  {
-    title: "TOPIK Level 4",
-    description: "Achieved after starting Korean from zero",
-    icon: "lucide:star",
-    tint: "var(--color-soft-red)",
-  },
-];
+import { achievements } from "../data/portfolio";
 ---
 
 <section id="achievements" class="section-pad bg-[color:var(--color-bg-tint)]">
@@ -54,8 +16,8 @@ const achievements = [
       {achievements.map((item) => (
         <div class="card-interactive flex items-start gap-4 p-5">
           <div
-            class="grid h-12 w-12 shrink-0 place-items-center rounded-xl text-[color:var(--color-ink)]"
-            style={`background: ${item.tint};`}
+            class="grid h-12 w-12 shrink-0 place-items-center rounded-xl text-white"
+            style={`background: ${item.iconColor};`}
           >
             <Icon name={item.icon} class="h-6 w-6" />
           </div>
@@ -63,6 +25,9 @@ const achievements = [
             <h3 class="text-[15.5px] font-semibold leading-tight tracking-tight text-[color:var(--color-ink)]">
               {item.title}
             </h3>
+            <p class="mt-0.5 text-[13px] text-[color:var(--color-ink-3)]">
+              {item.subtitle}
+            </p>
             <p class="mt-1.5 text-[13.5px] leading-[1.55] text-[color:var(--color-ink-2)]">
               {item.description}
             </p>

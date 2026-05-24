@@ -1,24 +1,15 @@
 ---
-const experiences = [
-  {
-    role: "Software Engineer",
-    type: "Remote Full-Time",
-    period: "Sep 2021 – Present",
-    description:
-      "Built and maintained production web applications, implemented 50+ UI screens from wireframes, developed backend features, APIs, and database-driven systems, and improved reliability through automated UI regression testing.",
-    tags: ["Laravel", "Vue.js", "API Development", "UI Testing", "PostgreSQL"],
-    accent: "var(--color-soft-purple)",
-  },
-  {
-    role: "Digital Marketing Team Lead",
-    type: "Previous Role",
-    period: "2020 – 2021",
-    description:
-      "Led a 5-person team and built operational systems that improved customer service response speed and supported campaigns reaching approximately Rp. 1.75B in annual revenue.",
-    tags: ["Team Leadership", "Process Automation", "Customer Service Systems", "Business Operations"],
-    accent: "var(--color-soft-blue)",
-  },
-];
+import { experiences } from "../data/portfolio";
+
+const accentColors = ["var(--color-soft-purple)", "var(--color-soft-blue)", "var(--color-soft-green)", "var(--color-soft-yellow)"];
+
+const experienceData = experiences.map((exp, idx) => ({
+  role: exp.role,
+  company: exp.company,
+  period: exp.period,
+  highlights: exp.highlights,
+  accent: accentColors[idx % accentColors.length],
+}));
 ---
 
 <section id="experience" class="section-pad">
@@ -35,7 +26,7 @@ const experiences = [
       <ol class="relative">
         <span aria-hidden="true" class="absolute left-[14px] top-2 bottom-2 w-px bg-[color:var(--color-border)]"></span>
 
-        {experiences.map((exp) => (
+        {experienceData.map((exp) => (
           <li class="relative pl-12 pb-10 last:pb-0">
             <span
               aria-hidden="true"
@@ -49,21 +40,18 @@ const experiences = [
               <div class="flex flex-wrap items-start justify-between gap-3">
                 <div>
                   <h3 class="text-[18px] font-semibold tracking-tight text-[color:var(--color-ink)]">{exp.role}</h3>
-                  <div class="mt-0.5 text-[13px] font-medium text-[color:var(--color-ink-3)]">{exp.type}</div>
+                  <div class="mt-0.5 text-[13px] font-medium text-[color:var(--color-ink-3)]">{exp.company}</div>
                 </div>
                 <span class="rounded-full border border-[color:var(--color-border)] bg-[color:var(--color-bg-soft)] px-2.5 py-1 text-[11.5px] font-semibold text-[color:var(--color-ink-2)]">
                   {exp.period}
                 </span>
               </div>
 
-              <p class="mt-4 text-[14.5px] leading-[1.7] text-[color:var(--color-ink-2)]">
-                {exp.description}
-              </p>
-
-              <ul class="mt-4 flex flex-wrap gap-1.5">
-                {exp.tags.map((tag) => (
-                  <li class="rounded-md bg-[color:var(--color-bg-soft)] px-2.5 py-1 text-[11.5px] font-medium text-[color:var(--color-ink-2)]">
-                    {tag}
+              <ul class="mt-4 space-y-2">
+                {exp.highlights.map((highlight) => (
+                  <li class="flex gap-2 text-[14.5px] leading-[1.6] text-[color:var(--color-ink-2)]">
+                    <span class="shrink-0 mt-1 text-[color:var(--color-accent)]">•</span>
+                    <span>{highlight}</span>
                   </li>
                 ))}
               </ul>

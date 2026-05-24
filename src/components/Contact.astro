@@ -1,10 +1,11 @@
 ---
 import { Icon } from "astro-icon/components";
+import { aboutMe } from "../data/portfolio";
 
 const ctas = [
-  { label: "Email Me", href: "mailto:umarsyarif1607@gmail.com", icon: "lucide:mail", primary: true },
-  { label: "GitHub", href: "https://github.com/", icon: "lucide:github", primary: false },
-  { label: "LinkedIn", href: "https://linkedin.com/", icon: "lucide:linkedin", primary: false },
+  { label: "Email Me", href: `mailto:${aboutMe.links.email}`, icon: "lucide:mail", primary: true },
+  { label: "GitHub", href: `https://${aboutMe.links.github}`, icon: "lucide:github", primary: false },
+  { label: "LinkedIn", href: `https://${aboutMe.links.linkedin}`, icon: "lucide:linkedin", primary: false },
   { label: "Download CV", href: "#", icon: "lucide:download", primary: false },
 ];
 ---
