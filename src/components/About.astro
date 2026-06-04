@@ -2,11 +2,13 @@
 import { Icon } from "astro-icon/components";
 import { aboutMe, languages } from "../data/portfolio";
 
+const [masterDegree, masterSchool] = aboutMe.currentStudy.split(" @ ");
+
 const profile = [
   { icon: "lucide:map-pin", label: "Based in", value: aboutMe.location },
-  { icon: "lucide:graduation-cap", label: "Study", value: aboutMe.currentStudy.split(" @ ")[0] },
+  { icon: "lucide:graduation-cap", label: "Undergrad", value: `${aboutMe.degree} · ${aboutMe.education}` },
+  { icon: "lucide:book-open", label: "Master's", value: `${masterDegree} · ${masterSchool}`, badge: "Current" },
   { icon: "lucide:target", label: "Focus", value: aboutMe.tagline.split(" · ").slice(0, 3).join(" · ") },
-  { icon: "lucide:sparkles", label: "Working Style", value: "Practical, organized, product-minded" },
   { icon: "lucide:languages", label: "Languages", value: languages.map(lang => lang.name).join(", ") },
 ];
 ---
@@ -53,12 +55,19 @@ const profile = [
 
         <ul class="mt-2 divide-y divide-[color:var(--color-border-soft)]">
           {profile.map((row) => (
-            <li class="grid grid-cols-[28px_minmax(0,140px)_1fr] items-center gap-3 py-3.5">
-              <div class="grid h-7 w-7 place-items-center rounded-lg bg-[color:var(--color-bg-soft)] text-[color:var(--color-ink-2)]">
+            <li class="grid grid-cols-[28px_minmax(0,100px)_1fr] items-start gap-3 py-3.5">
+              <div class="mt-0.5 grid h-7 w-7 place-items-center rounded-lg bg-[color:var(--color-bg-soft)] text-[color:var(--color-ink-2)]">
                 <Icon name={row.icon} class="h-4 w-4" />
               </div>
-              <div class="text-[13px] font-medium text-[color:var(--color-ink-3)]">{row.label}</div>
-              <div class="text-[14px] font-medium text-[color:var(--color-ink)]">{row.value}</div>
+              <div class="mt-0.5 text-[13px] font-medium text-[color:var(--color-ink-3)]">{row.label}</div>
+              <div class="text-[14px] font-medium text-[color:var(--color-ink)] leading-snug">
+                {row.value}
+                {'badge' in row && row.badge && (
+                  <span class="ml-1.5 inline-flex items-center rounded-full bg-[color:var(--color-soft-green)] px-1.5 py-0.5 text-[10px] font-semibold text-[color:var(--color-success)]">
+                    {row.badge}
+                  </span>
+                )}
+              </div>
             </li>
           ))}
         </ul>
