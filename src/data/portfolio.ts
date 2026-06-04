@@ -7,9 +7,9 @@ export const aboutMe = {
   bio: "Product-oriented Software Engineer with 3+ years of experience in developing large-scale web applications. Currently advancing expertise through a Master's program in Industrial Management. I combine strong technical execution with business insight in strategy, analytics, and service optimization. Passionate about building scalable, user-centered solutions that create measurable business value.",
   tagline: "Full-stack Development · Automation · AI Workflows · Product Engineering",
   location: "Jinju, South Korea",
-  degree: "S.Kom — Informatics Engineering",
+  degree: " Informatics Engineering",
   education: "UIN Sultan Syarif Kasim Riau, Indonesia",
-  currentStudy: "M.M — Industrial Management @ Gyeongsang National University",
+  currentStudy: "Industrial Management @ Gyeongsang National University",
   links: {
     email: "umarsyarif1607@gmail.com",
     linkedin: "linkedin.com/in/umarsyariif",
