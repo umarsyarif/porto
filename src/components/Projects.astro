@@ -16,6 +16,19 @@ type Project = {
   accent: string;
   stack: string[];
   features: Feature[];
+  github?: string;
+};
+
+type MoreProject = {
+  name: string;
+  tagline: string;
+  description: string;
+  year: string;
+  icon: string;
+  iconTint: string;
+  stack: string[];
+  github?: string;
+  live?: string;
 };
 
 const projects: Project[] = [
@@ -33,6 +46,7 @@ const projects: Project[] = [
     frameTint: "#e8e3ff",
     accent: "#6d5df6",
     stack: ["React", "Node.js", "PostgreSQL", "Docker"],
+    github: "https://github.com/umarsyarif/finance-app",
     features: [
       { name: "Wallet management", description: "Track every account, cash stash, and savings goal in one place." },
       { name: "Transaction tracking", description: "Add, tag, and filter every income and expense with category rules." },
@@ -79,6 +93,75 @@ const projects: Project[] = [
       { name: "Score analysis", description: "Breaks down strengths and weaknesses by section and topic." },
       { name: "Question packages", description: "Buy focused practice packs by topic, level, or full mock tests." },
     ],
+  },
+];
+
+const moreProjects: MoreProject[] = [
+  {
+    name: "Pharmacy Queue System",
+    tagline: "Healthcare · Real-time",
+    description:
+      "Real-time pharmacy queue management for RS Tabrani Pekanbaru. Integrated with a Telegram bot that notifies staff when a patient's prescription is ready.",
+    year: "2021",
+    icon: "lucide:activity",
+    iconTint: "var(--color-soft-blue)",
+    stack: ["Laravel", "Vue.js", "WebSockets", "Telegram Bot"],
+    github: "https://github.com/umarsyarif/antrian-obat-farmasi",
+  },
+  {
+    name: "Computer Adaptive Test",
+    tagline: "EdTech · Algorithm",
+    description:
+      "A web-based Computer Adaptive Test engine that dynamically adjusts question difficulty using Fuzzy logic algorithms based on student performance.",
+    year: "2023",
+    icon: "lucide:brain-circuit",
+    iconTint: "var(--color-soft-purple)",
+    stack: ["Laravel", "Fuzzy Logic", "PHP", "MySQL"],
+    github: "https://github.com/umarsyarif/laravel-cat-fuzzy",
+  },
+  {
+    name: "Undercover Party Game",
+    tagline: "Game · Multiplayer",
+    description:
+      "Web-based multiplayer implementation of the Undercover party game with automatic word-pair generation via API, custom word management, and responsive design.",
+    year: "2025",
+    icon: "lucide:users",
+    iconTint: "var(--color-soft-green)",
+    stack: ["React", "TypeScript", "Vite"],
+    github: "https://github.com/umarsyarif/undercover-game",
+  },
+  {
+    name: "Digital Report Card (E-Raport)",
+    tagline: "Education · School system",
+    description:
+      "A web application for SDN 017 Sungai Gantang to digitize the creation and storage of student report cards, replacing a fully manual process.",
+    year: "2020",
+    icon: "lucide:file-text",
+    iconTint: "var(--color-soft-yellow)",
+    stack: ["Laravel", "PHP", "MySQL"],
+    github: "https://github.com/umarsyarif/e-raport",
+  },
+  {
+    name: "QR Code Attendance",
+    tagline: "School · Automation",
+    description:
+      "Student attendance system using QR code scanning. Teachers generate class QR codes; students scan to mark attendance — no manual roll call needed.",
+    year: "2026",
+    icon: "lucide:qr-code",
+    iconTint: "var(--color-soft-orange)",
+    stack: ["Laravel", "PHP", "QR Code"],
+    github: "https://github.com/umarsyarif/absensi-qrcode",
+  },
+  {
+    name: "PMB STAI Auliurrasyidin",
+    tagline: "Education · Client work",
+    description:
+      "Web-based student registration and admission system for STAI Auliurrasyidin Tembilahan. Handled the full application, document upload, and selection flow.",
+    year: "2020",
+    icon: "lucide:school",
+    iconTint: "var(--color-soft-red)",
+    stack: ["Laravel", "Vue.js", "MySQL"],
+    live: "https://pmb.stai-tbh.ac.id",
   },
 ];
 
@@ -170,13 +253,17 @@ const featureCountById = JSON.stringify(
                 </ul>
 
                 <div class="mt-7 flex flex-wrap items-center gap-4">
-                  <a
-                    href="#"
-                    aria-label="GitHub repository"
-                    class="grid h-9 w-9 place-items-center rounded-lg border border-[color:var(--color-border)] bg-white text-[color:var(--color-ink-2)] transition hover:border-[color:var(--color-ink)]/30 hover:text-[color:var(--color-ink)]"
-                  >
-                    <Icon name="lucide:github" class="h-4 w-4" />
-                  </a>
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="GitHub repository"
+                      class="grid h-9 w-9 place-items-center rounded-lg border border-[color:var(--color-border)] bg-white text-[color:var(--color-ink-2)] transition hover:border-[color:var(--color-ink)]/30 hover:text-[color:var(--color-ink)]"
+                    >
+                      <Icon name="lucide:github" class="h-4 w-4" />
+                    </a>
+                  )}
                   <ul class="flex flex-wrap gap-1.5">
                     {project.stack.map((tech) => (
                       <li class="rounded-md bg-[color:var(--color-bg-soft)] px-2 py-0.5 text-[11.5px] font-medium text-[color:var(--color-ink-2)]">
@@ -285,8 +372,70 @@ const featureCountById = JSON.stringify(
       </div>
     </div>
 
+    <!-- More work grid -->
+    <div class="mt-16">
+      <div class="flex items-center gap-4 mb-8">
+        <div class="eyebrow">More work</div>
+        <div class="flex-1 h-px bg-[color:var(--color-border)]"></div>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {moreProjects.map((proj) => (
+          <div class="card-interactive flex flex-col p-5">
+            <div class="flex items-start justify-between gap-3">
+              <div
+                class="grid h-10 w-10 shrink-0 place-items-center rounded-xl text-[color:var(--color-ink)]"
+                style={`background: ${proj.iconTint};`}
+              >
+                <Icon name={proj.icon} class="h-5 w-5" />
+              </div>
+              <div class="flex gap-1.5">
+                {proj.github && (
+                  <a
+                    href={proj.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub"
+                    class="grid h-8 w-8 place-items-center rounded-lg border border-[color:var(--color-border)] text-[color:var(--color-ink-3)] transition hover:text-[color:var(--color-ink)]"
+                    onclick="event.stopPropagation()"
+                  >
+                    <Icon name="lucide:github" class="h-3.5 w-3.5" />
+                  </a>
+                )}
+                {proj.live && (
+                  <a
+                    href={proj.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Live site"
+                    class="grid h-8 w-8 place-items-center rounded-lg border border-[color:var(--color-border)] text-[color:var(--color-ink-3)] transition hover:text-[color:var(--color-ink)]"
+                    onclick="event.stopPropagation()"
+                  >
+                    <Icon name="lucide:external-link" class="h-3.5 w-3.5" />
+                  </a>
+                )}
+              </div>
+            </div>
+
+            <div class="mt-4 flex-1">
+              <div class="text-[11px] font-semibold uppercase tracking-[0.12em] text-[color:var(--color-ink-3)]">{proj.tagline} · {proj.year}</div>
+              <h3 class="mt-1.5 text-[15.5px] font-semibold leading-snug tracking-tight text-[color:var(--color-ink)]">{proj.name}</h3>
+              <p class="mt-2 text-[13.5px] leading-[1.6] text-[color:var(--color-ink-2)]">{proj.description}</p>
+            </div>
+
+            <ul class="mt-4 flex flex-wrap gap-1.5">
+              {proj.stack.map((tech) => (
+                <li class="rounded-md bg-[color:var(--color-bg-soft)] px-2 py-0.5 text-[11px] font-medium text-[color:var(--color-ink-2)]">
+                  {tech}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+
     <!-- Bottom: other project cards -->
-    <div class="mt-6 flex flex-wrap justify-center gap-4">
+    <div class="mt-10 flex flex-wrap justify-center gap-4">
       {projects.map((project) => (
         <button
           type="button"
