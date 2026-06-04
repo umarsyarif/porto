@@ -46,14 +46,7 @@ const projects: Project[] = [
     iconTint: "var(--color-soft-orange)",
     frameTint: "#ffe7d1",
     accent: "#d97706",
-    stack: [
-      "Next.js",
-      "PostgreSQL",
-      "Redis",
-      "Cloudflare R2",
-      "Prisma",
-      "Mayar",
-    ],
+    stack: ["Next.js", "PostgreSQL", "Redis", "Cloudflare R2", "Prisma", "AI"],
     github: "https://github.com/umarsyarif/hanchin-topik",
     live: "https://hanchin-topik.com",
     features: [
@@ -70,7 +63,7 @@ const projects: Project[] = [
       {
         name: "AI writing grader",
         description:
-          "TOPIK II Writing answers graded async by GPT-4o-mini against the official four-criteria rubric. Submit enqueues a Redis job; a PM2 worker grades and fills in the full /300 score + level 3–6. Paid sets only.",
+          "TOPIK II Writing answers graded async by AI against the official four-criteria rubric. Submit enqueues a Redis job.",
       },
     ],
   },
@@ -506,13 +499,13 @@ const featureCountById = JSON.stringify(
                 class="absolute inset-0 transition-opacity duration-300 opacity-0 pointer-events-none"
               >
                 <img
-                  src="/screenshots/topik-test.svg"
+                  src="/screenshots/topik-exam.png"
                   alt="Server-authoritative exam engine"
                   class="h-full w-full object-cover object-top"
                 />
               </div>
 
-              <!-- TOPIK / Payments -->
+              <!-- TOPIK / Result -->
               <div
                 data-mockup
                 data-project="topik"
@@ -520,13 +513,13 @@ const featureCountById = JSON.stringify(
                 class="absolute inset-0 transition-opacity duration-300 opacity-0 pointer-events-none"
               >
                 <img
-                  src="/screenshots/topik-scores.svg"
+                  src="/screenshots/topik-result.png"
                   alt="Freemium + payment entitlements"
                   class="h-full w-full object-cover object-top"
                 />
               </div>
 
-              <!-- TOPIK / Audio -->
+              <!-- TOPIK / AI Grading -->
               <div
                 data-mockup
                 data-project="topik"
@@ -534,7 +527,7 @@ const featureCountById = JSON.stringify(
                 class="absolute inset-0 transition-opacity duration-300 opacity-0 pointer-events-none"
               >
                 <img
-                  src="/screenshots/topik-packages.svg"
+                  src="/screenshots/topik-aigrade.png"
                   alt="AI writing grader"
                   class="h-full w-full object-cover object-top"
                 />
