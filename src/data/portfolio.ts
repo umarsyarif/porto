@@ -6,7 +6,7 @@ export const aboutMe = {
   subtitle: "Industrial Management Master's Student",
   bio: "Product-oriented Software Engineer with 3+ years of experience in developing large-scale web applications. Currently advancing expertise through a Master's program in Industrial Management. I combine strong technical execution with business insight in strategy, analytics, and service optimization. Passionate about building scalable, user-centered solutions that create measurable business value.",
   tagline: "Full-stack Development · Automation · AI Workflows · Product Engineering",
-  location: "Seoul, South Korea",
+  location: "Jinju, South Korea",
   education: "State Islamic University of Sultan Syarif Kasim Riau, Indonesia",
   currentStudy: "Master of Management, Industrial Management @ Gyeongsang National University",
   links: {
