@@ -17,6 +17,7 @@ type Project = {
   stack: string[];
   features: Feature[];
   github?: string;
+  live?: string;
 };
 
 type MoreProject = {
@@ -32,6 +33,47 @@ type MoreProject = {
 };
 
 const projects: Project[] = [
+  {
+    id: "topik",
+    name: "HC-TOPIK",
+    tagline: "EdTech · Korean learning",
+    description:
+      "A full-stack TOPIK I mock exam platform for Indonesian learners — server-authoritative exam engine, freemium content model, and protected audio delivery via Cloudflare R2.",
+    status: "In Development",
+    statusTint: "var(--color-soft-yellow)",
+    statusColor: "#9a6a00",
+    icon: "lucide:graduation-cap",
+    iconTint: "var(--color-soft-orange)",
+    frameTint: "#ffe7d1",
+    accent: "#d97706",
+    stack: [
+      "Next.js",
+      "PostgreSQL",
+      "Redis",
+      "Cloudflare R2",
+      "Prisma",
+      "Mayar",
+    ],
+    github: "https://github.com/umarsyarif/hanchin-topik",
+    live: "https://hanchin-topik.com",
+    features: [
+      {
+        name: "Server-authoritative exam engine",
+        description:
+          "Timer, section state, and answer validation run server-side. Listening + Reading sections mirror real TOPIK I format with strict section locking.",
+      },
+      {
+        name: "Freemium + payment entitlements",
+        description:
+          "Free sets available to all. Paid question packs unlocked via Mayar — entitlements activated only on verified webhook, not payment redirect.",
+      },
+      {
+        name: "AI writing grader",
+        description:
+          "TOPIK II Writing answers graded async by GPT-4o-mini against the official four-criteria rubric. Submit enqueues a Redis job; a PM2 worker grades and fills in the full /300 score + level 3–6. Paid sets only.",
+      },
+    ],
+  },
   {
     id: "finance",
     name: "Personal Finance Tracker",
@@ -99,39 +141,6 @@ const projects: Project[] = [
         name: "Weekly summaries",
         description:
           "Get an automatic recap of spending, income, and top categories.",
-      },
-    ],
-  },
-  {
-    id: "topik",
-    name: "HC-TOPIK",
-    tagline: "EdTech · Korean learning",
-    description:
-      "A full-stack TOPIK I mock exam platform for Indonesian learners — server-authoritative exam engine, freemium content model, and protected audio delivery via Cloudflare R2.",
-    status: "In Development",
-    statusTint: "var(--color-soft-yellow)",
-    statusColor: "#9a6a00",
-    icon: "lucide:graduation-cap",
-    iconTint: "var(--color-soft-orange)",
-    frameTint: "#ffe7d1",
-    accent: "#d97706",
-    stack: ["Next.js", "PostgreSQL", "Redis", "Cloudflare R2", "Prisma", "Mayar"],
-    github: "https://github.com/umarsyarif/hanchin-topik",
-    features: [
-      {
-        name: "Server-authoritative exam engine",
-        description:
-          "Timer, section state, and answer validation run server-side. Listening + Reading sections mirror real TOPIK I format with strict section locking.",
-      },
-      {
-        name: "Freemium + payment entitlements",
-        description:
-          "Free sets available to all. Paid question packs unlocked via Mayar — entitlements activated only on verified webhook, not payment redirect.",
-      },
-      {
-        name: "Protected audio delivery",
-        description:
-          "Listening audio served via short-TTL R2 presigned URLs. No seek or speed control in test mode; full playback controls unlock in review mode.",
       },
     ],
   },
@@ -349,7 +358,7 @@ const featureCountById = JSON.stringify(
                     ))}
                   </ul>
 
-                  <div class="mt-7 flex flex-wrap items-center gap-4">
+                  <div class="mt-7 flex flex-wrap items-center gap-3">
                     {project.github && (
                       <a
                         href={project.github}
@@ -359,6 +368,17 @@ const featureCountById = JSON.stringify(
                         class="grid h-9 w-9 place-items-center rounded-lg border border-[color:var(--color-border)] bg-white text-[color:var(--color-ink-2)] transition hover:border-[color:var(--color-ink)]/30 hover:text-[color:var(--color-ink)]"
                       >
                         <Icon name="lucide:github" class="h-4 w-4" />
+                      </a>
+                    )}
+                    {project.live && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Live site"
+                        class="grid h-9 w-9 place-items-center rounded-lg border border-[color:var(--color-border)] bg-white text-[color:var(--color-ink-2)] transition hover:text-[color:var(--color-ink)]"
+                      >
+                        <Icon name="lucide:external-link" class="h-4 w-4" />
                       </a>
                     )}
                     <ul class="flex flex-wrap gap-1.5">
@@ -515,7 +535,7 @@ const featureCountById = JSON.stringify(
               >
                 <img
                   src="/screenshots/topik-packages.svg"
-                  alt="Protected audio delivery"
+                  alt="AI writing grader"
                   class="h-full w-full object-cover object-top"
                 />
               </div>
@@ -566,6 +586,39 @@ const featureCountById = JSON.stringify(
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Bottom: other project cards -->
+    <div class="mt-10 flex flex-wrap justify-center gap-4">
+      {
+        projects.map((project) => (
+          <button
+            type="button"
+            data-project-card={project.id}
+            data-active={project.id === projects[0].id ? "" : undefined}
+            class="group relative flex w-full max-w-[280px] items-center gap-3 rounded-2xl border border-[color:var(--color-border)] bg-white p-4 text-left transition data-[active]:hidden hover:-translate-y-0.5 hover:border-[color:var(--color-ink)]/30 hover:shadow-[0_10px_28px_-12px_rgba(17,24,39,0.12)]"
+          >
+            <div
+              class="grid h-11 w-11 shrink-0 place-items-center rounded-xl text-[color:var(--color-ink)]"
+              style={`background: ${project.iconTint};`}
+            >
+              <Icon name={project.icon} class="h-5 w-5" />
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="text-[11px] font-semibold uppercase tracking-wider text-[color:var(--color-ink-3)]">
+                {project.tagline}
+              </div>
+              <div class="mt-0.5 truncate text-[14px] font-semibold text-[color:var(--color-ink)]">
+                {project.name}
+              </div>
+            </div>
+            <Icon
+              name="lucide:arrow-up-right"
+              class="h-4 w-4 text-[color:var(--color-ink-3)] transition group-hover:text-[color:var(--color-ink)]"
+            />
+          </button>
+        ))
+      }
     </div>
 
     <!-- More work — horizontal scroll -->
@@ -643,39 +696,6 @@ const featureCountById = JSON.stringify(
           }
         </div>
       </div>
-    </div>
-
-    <!-- Bottom: other project cards -->
-    <div class="mt-10 flex flex-wrap justify-center gap-4">
-      {
-        projects.map((project) => (
-          <button
-            type="button"
-            data-project-card={project.id}
-            data-active={project.id === projects[0].id ? "" : undefined}
-            class="group relative flex w-full max-w-[280px] items-center gap-3 rounded-2xl border border-[color:var(--color-border)] bg-white p-4 text-left transition data-[active]:hidden hover:-translate-y-0.5 hover:border-[color:var(--color-ink)]/30 hover:shadow-[0_10px_28px_-12px_rgba(17,24,39,0.12)]"
-          >
-            <div
-              class="grid h-11 w-11 shrink-0 place-items-center rounded-xl text-[color:var(--color-ink)]"
-              style={`background: ${project.iconTint};`}
-            >
-              <Icon name={project.icon} class="h-5 w-5" />
-            </div>
-            <div class="min-w-0 flex-1">
-              <div class="text-[11px] font-semibold uppercase tracking-wider text-[color:var(--color-ink-3)]">
-                {project.tagline}
-              </div>
-              <div class="mt-0.5 truncate text-[14px] font-semibold text-[color:var(--color-ink)]">
-                {project.name}
-              </div>
-            </div>
-            <Icon
-              name="lucide:arrow-up-right"
-              class="h-4 w-4 text-[color:var(--color-ink-3)] transition group-hover:text-[color:var(--color-ink)]"
-            />
-          </button>
-        ))
-      }
     </div>
   </div>
 </section>
